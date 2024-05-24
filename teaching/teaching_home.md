@@ -1,6 +1,6 @@
 # I'm A Professor
 
-For a full look at my teaching credentials, including resume, teaching philosophy, samples of work, and student feedback; see my Teaching Portfolio by clicking the link in the right sidebar.
+<p style="color:blue">For</p> a full look at my teaching credentials, including resume, teaching philosophy, samples of work, and student feedback; see my Teaching Portfolio by clicking the link in the right sidebar.
 
 I've been teaching at Mohawk College since 2019 and have mainly taught MATH10042 and MATH10064.
 
