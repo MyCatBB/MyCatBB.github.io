@@ -49,3 +49,29 @@ With the above optimization, we can rewrite the full implementation as follows:
 3. Move through the list and scratch out every $p^{\text{th}}$ number beginning with $p^2$, since it is a multiple of $p$ and therefore not prime.
 4. Repeat from step 2 until $p^2 > n$. All remaining unmarked values are prime. Complete.
     > At a certain point $p^2$ will be bigger than our maximum value, meaning we have nothing to scratch out anymore.  This will occur after $\sqrt{n}$ iterations.
+
+<style>
+    a {
+        position: relative;
+        display: inline-block;
+    }
+
+    a:hover::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-image: url(attr(title));
+        background-size: cover; /* Adjust the background size */
+        background-repeat: no-repeat; /* Ensure image doesn't repeat */
+        background-color: white; /* Set background color */
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 5px;
+        border-radius: 5px;
+        z-index: 1;
+        display: block; /* Ensures the hover box has the size of the image */
+        width: 200px; /* Set a fixed width for the hover box */
+        height: 200px; /* Set a fixed height for the hover box */
+    }
+</style>
