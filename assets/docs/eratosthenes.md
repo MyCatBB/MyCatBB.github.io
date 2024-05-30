@@ -1,59 +1,5 @@
 # The Sieve of Eratosthenes
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .hoverbox {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            border-bottom: 1px dotted black;
-        }
-
-        .hoverbox .hoverbox-text {
-            visibility: hidden;
-            width: 120px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%; /* Position the tooltip above the text */
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .hoverbox .hoverbox-text::after {
-            content: "";
-            position: absolute;
-            top: 100%; /* At the bottom of the tooltip */
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: black transparent transparent transparent;
-        }
-
-        .hoverbox:hover .hoverbox-text {
-            visibility: visible;
-            opacity: 1;
-        }
-    </style>
-</head>
-<body>
-
-<p>Here is an example of a <span class="hoverbox">hoverbox<span class="hoverbox-text">This is the hover text!</span></span> in Markdown.</p>
-
-</body>
-</html>
-
 The Sieve of Eratosthenes (Air-Uh-Toss-The-Knees) is an ancient algorithm developed by the greek polymath, [Eratosthenes of Cyrene](https://en.wikipedia.org/wiki/Eratosthenes) (c. 276 BC – c. 195/194 BC).  The algorithm describes a very simple way to find all prime numbers up to a maximum value, $n$, and it does so without the use of multiplication or division.  This is notable since division, in particular, is [slow](https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations).  See the [wikipedia article](https://en.wikipedia.org/wiki/Division_algorithm#Fast_division_methods) on division algorithms for more information on slow vs. fast division methods.
 
 The naive way to consider such a task is to simply check if each number, $x$,  up to $n$ is prime. Checking for primality is computationally difficult, although in 2002 (after *literally* **thousands** of years of thought) it *was* shown to be in the [complexity class P](https://en.wikipedia.org/wiki/P_(complexity)).  This difficult task needs to be done for every number $x$ less than $n$.  
