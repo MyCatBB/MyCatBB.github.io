@@ -43,7 +43,7 @@
     }
 
     footer {
-      padding: 64px auto;
+      padding: 64px;
       text-align: Right;
     }
     .icon {
@@ -76,48 +76,46 @@
         color: white;
         text-decoration: underline;
     }
-    #hoverboxTest{
-      color: red;
+
+    main table, main td{
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 30%;
+        text-align: center;
     }
-      .hoverbox {
-       position: relative;
-       display: inline-block;
-       cursor: pointer;
-       border-bottom: 1px dotted black;
-   }
 
-   .hoverbox .hoverbox-text {
-       visibility: hidden;
-       width: 120px;
-       background-color: black;
-       color: #fff;
-       text-align: center;
-       border-radius: 5px;
-       padding: 5px;
-       position: absolute;
-       z-index: 1;
-       bottom: 125%; /* Position the tooltip above the text */
-       left: 50%;
-       margin-left: -60px;
-       opacity: 0;
-       transition: opacity 0.3s;
-   }
+    #hovertest a {
+    position: relative;
+    display: inline-block;
+    }
 
-   .hoverbox .hoverbox-text::after {
-       content: "";
-       position: absolute;
-       top: 100%; /* At the bottom of the tooltip */
-       left: 50%;
-       margin-left: -5px;
-       border-width: 5px;
-       border-style: solid;
-       border-color: black transparent transparent transparent;
-   }
+#hovertest a:hover {
+    color: blue; /* Color on hover */
+}
 
-   .hoverbox:hover .hoverbox-text {
-       visibility: visible;
-       opacity: 1;
-   }
+.hoverbox {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+    width: 300px;
+    height: 300px;
+}
+
+#hovertest a:hover .hoverbox {
+    visibility: visible;
+    opacity: 1;
+}
+
   </style>
   <script>
    // Configure MathJax settings
@@ -155,17 +153,133 @@
   <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
   <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js">
   </script>
+  <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    crossorigin="anonymous">
  </head>
- <body>
+ <body class="container-lg p-0">
   <header>
    <a href="https://mikeverwer.github.io">
     <img alt="Glider" class="logo" src="/assets/images/icon.png"/>
    </a>
   </header>
   <main>
-   <!-- Simply set the `src` attribute to your MD file and win -->
-   <zero-md no-shadow="" id ="hoverboxTest" src="eratosthenes.md">
-   </zero-md>
+        <div id="hovertest">
+            
+            <h1 id="the-sieve-of-eratosthenes">The Sieve of Eratosthenes</h1>
+
+            <p>The Sieve of Eratosthenes (Air-Uh-Toss-The-Knees) is an ancient algorithm developed by the greek polymath, 
+                <a href="https://en.wikipedia.org/wiki/Eratosthenes">Eratosthenes of Cyrene
+                    <span class="hoverbox">Hover box content for Link 1</span>
+                </a> 
+                (c. 276 BC – c. 195/194 BC).  The algorithm describes a very simple way to find all prime numbers up to a maximum value, $n$, and it does so without the use of multiplication or division.  This is notable since division, in particular, is 
+                <a href="https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations">slow
+                    <span class="hoverbox">Hover box content for Link 1</span>
+                </a>.  
+                See the 
+                <a href="https://en.wikipedia.org/wiki/Division_algorithm#Fast_division_methods">wikipedia article
+                    <span class="hoverbox">Hover box content for Link 1</span>
+                </a> 
+                on division algorithms for more information on slow vs. fast division methods.
+            </p>
+
+            <p>The naive way to consider such a task is to simply check if each number, $x$,  up to $n$ is prime. Checking for primality is computationally difficult, although in 2002 (after <em>literally</em> <strong>thousands</strong> of years of thought) it <em>was</em> shown to be in the 
+                <a href="https://en.wikipedia.org/wiki/P_(complexity">complexity class P
+                    <span class="hoverbox">Hover box content for Link 1</span>
+                </a>
+                ).  This difficult task needs to be done for every number $x$ less than $n$.  
+            </p>
+
+            <p>The simple approach to testing some number, $x$, for primality is to divide $x$ by every number less than the square root of $x$.</p>
+
+            <p>We can stop at the square root of $x$ since $\sqrt{x}$ is the multiplicative &quot;half-way point&quot;.  That is, when I find a factor less than $\sqrt{x}$ I also find it&#39;s corresponding factor larger than $\sqrt{x}$.  For example, if I list out all the integers $a$, and $b$ such that $a \cdot b = 30$, I get the following:  </p>
+
+            <table>
+                <tr>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>3</td>
+                </tr>
+            </table>
+            <p>At this point I have started to find redundant factors, this is because we have passed over $\sqrt{30} \approx 5.47$.</p>
+
+            <p>The process can be optimized a bit by only dividing by <em>prime</em> numbers less than $\sqrt{x}$.  The problem with this is the need for a list of primes up to $\sqrt{x}$, which makes the optimization ineffective for large $x$.</p>
+
+            <h2 id="the-algorithm">The Algorithm</h2>
+
+            <p>The Sieve does not require any primality testing and only involves the use of addition.  The steps of the algorithm can be outlined as follows:</p>
+            <ol>
+                <li>Generate the full list of numbers from $2$ to $n$.  
+                    <blockquote>
+                        <p>We can start at 2 since 1 is not prime, by definition.</p>
+                    </blockquote>
+                </li>
+
+                <li>Find the first unmarked value, $p$. This number is prime.</li>
+
+                <li>Move through the list and scratch out every $p^{\text{th}}$ number, since it is a multiple of $p$ and therefore not prime.</li>
+
+                <li>Repeat from step 2 until $ p \geq n$.
+                    <blockquote>
+                    <p>We found the end of the list.</p>
+                    </blockquote>
+                </li>
+            </ol>
+
+            <p>In other words, we begin by assuming every number is a candidate for being prime. Instead of finding the numbers that <em>are</em> prime, we eliminate numbers that <em>aren&#39;t</em>. Begin at the number $2$, it is prime. Every multiple of $2$ is therefore not prime; remove them from the pool. The next candidate is $3$.  Since it is not a multiple of anything before it, it must be prime. Now remove all multiples of $3$... and so on.</p>
+
+            <p>I think it is important to recognize here that we are not exactly removing all multiples of the prime, $p$.  That is, of course, the effect; but it isn&#39;t really the action.  We never actually have to check if the number we scratch out is a multiple of $p$.  We simply move $p$ units to the right and scratch out whatever we land on. Even though checking for divisibility by $p$ is <em>one</em> division check, it is <strong>still</strong> a division check, and therefore slow. All we ever do is count to $p$ over and over again until we reach the end of the list.  This is what makes the algorithm so amazing; finding primes, which are <strong>defined</strong> by division, without having to divide.</p>
+
+            <p>We can optimize step 3 by starting our search for multiples at $p^2$ instead of $2p$.  This is because every multiple of $p$ less than $p^2$ is a multiple of a prime less than $p$. Therefore, we have already scratched them all out when we found the smaller primes.  As an example, consider the first three primes, $2$, $3$, and $5$.</p>
+
+            <blockquote>
+                <p>$2$ is prime and so we scratch out all multiples of $2$ and we move on to the next prime, $3$.<br>Now we move three units to the right and land on $6$, but $6=2\times3$ so we scratched it out when we found all the multiples of $2$.  The first thing we have no information on is $3\times3 = 9 = 3^2$.  Start from here and scratch out all multiples of 3.<br>When we move on to $5$, we know that $2\times5 =10$ was scratched out during the $2$&#39;s and $3\times5=15$ was scratched out during the $3$&#39;s.  $4\times5$ was also scratched out during the $2$&#39;s since $4=2\times2$.  Therefore, we can start at $5^2=25.</p>
+            </blockquote>
+            <p>With the above optimization, we can rewrite the full implementation as follows:</p>
+            <ol>
+                <li>Generate the full list of numbers from $2$ to $n$.  
+                    <blockquote>
+                        <p>We can start at 2 since 1 is not prime, by definition.</p>
+                    </blockquote>
+                </li>
+
+                <li>Find the first unmarked value, $p$. This number is prime.</li>
+
+                <li>Move through the list and scratch out every $p^{\text{th}}$ number beginning with $p^2$, since it is a multiple of $p$ and therefore not prime.</li>
+
+                <li>Repeat from step 2 until $p^2 &gt; n$. All remaining unmarked values are prime. Complete.
+                    <blockquote>
+                        <p>At a certain point $p^2$ will be bigger than our maximum value, meaning we have nothing to scratch out anymore.  This will occur after $\sqrt{n}$ iterations.</p>
+                    </blockquote>
+                </li>
+            </ol>
+    </div>
   </main>
   <div class="author">
    Made with contributions by
