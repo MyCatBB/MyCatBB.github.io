@@ -12,7 +12,6 @@
             margin: 0 auto;
             padding-left: 64px;
             padding-right: 64px;
-   
         }
         body {
             font-family: Arial, Helvetica, sans-serif, sans-serif;
@@ -94,6 +93,7 @@
             padding: 20px;
             width: 60%;
             background-color: #eaeaea;
+            font-size: larger;
         }
         img {
             padding: 4px;
@@ -135,22 +135,8 @@
             color: white;
             text-decoration: underline;
         }
-        main table, main td, main th{
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: auto;
-            text-align: center;
-            padding: 5px 10px 5px 10px;
-        }
-        main th{
-            background-color: white;
-        }
-        #oddrow{
-            background-color: white;
-        }
-        #evenrow{
-            background-color: rgb(234, 244, 244);
-        }
+
+   /* Followings are CSS for the hoverbox */
         #hovertest a {
             position: relative;
             display: inline-block;
@@ -174,10 +160,17 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: opacity 0.8s ease;
             z-index: 1;
-            width: 300px;
-            height: 300px;
+            width: auto;
+            max-width: none;
+            height: auto;
+            white-space: nowrap;
             font-size: 15px;
             font-weight: normal;
+        }
+
+        .hoverbox #hoverboxcontent{
+            max-width: none;
+            height: auto;
         }
 
         #hovertest a:hover .hoverbox {
@@ -272,80 +265,9 @@
     </ul>
    </nav>
    <main>
-        <div id="hovertest">
-            <h1>I'm A Professor</h1>
-            <p>For a full look at my teaching credentials, including resume, teaching philosophy, samples of work, and student feedback; see my Teaching Portfolio by clicking the link in the right sidebar.</p>
-            <p>I've been teaching at Mohawk College since 2019 and have mainly taught MATH10042 and MATH10064.</p>
-
-            <h2>10042 Math for Computer Studies 
-                <a href="https://cereg.mohawkcollege.ca/course?courseCode=MATH10042">School Link
-                    <span class="hoverbox">Hover box content for this Link</span>
-                </a>
-            </h2>
-
-            <p>In this course we focus on the fundamentals of digital logic. We begin with the concept of positional numbering systems; including decimal, binary, octal, and hexadecimal.  It is important to begin here because the binary based number systems are the basis of all computer architecture and logic.  From there we discuss arithmetic in the binary system and introduce Boolean algebra.<br>Boolean algebra is the logic system that computers use at the mechanical level of the 
-                <a href="https://en.wikipedia.org/wiki/Logic_gate#Manufacturing">gate
-                    <span class="hoverbox">Hover box content for this Link</span>
-                </a>.  
-
-            It is also how circuits are designed, we showcase this by designing the circuit for a 7-segment display (think of the digits on a digital clock, or a basic calculator).  We also explore an application of binary strings through the example of Unicode UTF-8 code-point encodings.<br>We finish the course standard lessons on algebra, linear functions, and exponential and logarithmic functions.</p>
-            <h2>10064 Discrete Math & Statistics 
-                <a href="https://cereg.mohawkcollege.ca/course?courseCode=MATH10064">School Link
-                    <span class="hoverbox">Hover box content for this Link</span>
-                </a></h2>
-            <p>In 10064, we discus various introductory topics in the realm of discrete mathematics.  Discreteness means that things are fully separated from each other; you could also say that the members of a discrete set are listable, or 
-                <a href="https://en.wikipedia.org/wiki/Countable_set">countable
-                    <span class="hoverbox">Hover box content for this Link</span>
-                </a>.
-                <br>The typical example of a discrete set is the set of Integers, in fact all discrete sets can be reduced to some subset of the integers. For this reason, studying the integers is of huge importance in discrete math and, to that end, the course begins with some introductory number theory. We start with the primary building blocks of the integers, prime numbers. We discuss testing for primality and then expand our notion of &quot;division&quot; in the integers with modular arithmetic.<br>After this we shift our focus to counting and probabilities, and then finish the course with a brief exploration of introductory statistics.</p>
-            <h2 id="past-and-current-teaching">Past and Current Teaching</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Course(s)</th>
-                        <th>Section(s)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="oddrow">
-                        <td><strong>Winter 2024</strong></td>
-                        <td><strong>MATH10064</strong></td>
-                        <td><strong>T04, T05, T10</strong></td>
-                    </tr>
-                    <tr id="evenrow">
-                        <td>Fall 2023</td>
-                        <td>MATH10042</td>
-                        <td>T06, T07, T08</td>
-                    </tr>
-                    <tr id="oddrow">
-                        <td>Summer 2023</td>
-                        <td>MATH10064 <br> MATH10089</td>
-                        <td>T01, T06 <br> T01</td>
-                    </tr>
-                    <tr id="evenrow">
-                        <td>Winter 2023</td>
-                        <td>MATH10064</td>
-                        <td>T04, T05, T06</td>
-                    </tr>
-                    <tr id="oddrow">
-                        <td>Fall 2022</td>
-                        <td>MATH10042</td>
-                        <td>T11</td>
-                    </tr>
-                    <tr id="evenrow">
-                        <td>Winter 2020</td>
-                        <td>MATH10042 <br> MATH10079 <br> MA101</td>
-                        <td>T01 <br> T01, T02 <br> T02, T05</td>
-                    </tr>
-                    <tr id="oddrow">
-                        <td>Fall 2019</td>
-                        <td>MATH10042</td>
-                        <td>T01</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- Simply set the `src` attribute to your MD file and win -->
+    <zero-md no-shadow="" src="teaching_home.md">
+    </zero-md>
    </main>
    <a href="/password.html">
     <img alt="Golden rectangle" class="bottom-right-image" src="/assets/images/golden-rectangle.png"/>
